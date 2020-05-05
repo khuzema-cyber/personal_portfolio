@@ -1,0 +1,11 @@
+<h1>checking</h1>
+
+{% for eggs in project_two %}
+
+    <h1>{{ eggs.title }}<h1>
+
+    <h3>{{ eggs.describtion }}<h3>
+
+    <img src="{{ eggs.image.url }}">
+
+{% endfor %}

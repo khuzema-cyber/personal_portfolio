@@ -1,0 +1,30 @@
+{% extends 'portfolio/base.html' %}
+{% block content %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'portfolio/home.css' %}">
+    
+    <section id="header">
+    <div class="container">
+        <h1>KHUZEMA PORTFOLIO</h1>
+        <img src="{% static 'portfolio/khuzema.jpg' %}">
+    </div>
+    </section>
+
+    <section id="portfolio">
+    <div class="container">
+        <h2>PORTFOLIO</h2>
+        <div class="project">
+         <div class="row">
+            {% for eggs in projects %}
+                <div class="col-lg-4">
+                {% if eggs.urls %}
+                  <a href="{{ eggs.urls }}"><img src="{{ eggs.image.url }}"></a>
+                    {% else %}
+                    <img src="{{ eggs.image.url }}">
+                {% endif %}
+               <h1>{{ eggs.title }}</h1>
+                <h3>{{ eggs.describtion }}</h3>
+                </div>
+            {% endfor %}
+         </div>
+{% endblock %}
